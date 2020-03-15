@@ -1,6 +1,5 @@
 package com.vignesh.healthcare.entity;
 
-import com.vignesh.healthcare.validator.UserValidator;
 
 public class UserEntity {
     private String name;
@@ -8,8 +7,9 @@ public class UserEntity {
     private long contact;
     private int age;
     private String gender;
-    private String password;
     private String address;
+    private String city;
+    private String country;
 
     public String getName() {
         return name;
@@ -31,13 +31,13 @@ public class UserEntity {
         return gender;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
     public String getAddress() {
         return address;
     }
+
+    public String getCity(){ return city; }
+
+    public String getCountry(){ return country; }
 
     public void setName(String name) {
         this.name = name;
@@ -59,12 +59,16 @@ public class UserEntity {
         this.gender = gender;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 
 }

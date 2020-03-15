@@ -1,4 +1,4 @@
-package com.vignesh.healthcare;
+package com.vignesh.healthcare.common;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,28 +20,30 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.vignesh.healthcare.doctor.DoctorMainPage;
+import com.vignesh.healthcare.doctor.DoctorSignupFragment;
+import com.vignesh.healthcare.R;
+import com.vignesh.healthcare.entity.LoginEntity;
+import com.vignesh.healthcare.user.UserMainPage;
+import com.vignesh.healthcare.user.UserSignupFragment;
 import com.vignesh.healthcare.entity.DoctorEntity;
 import com.vignesh.healthcare.entity.UserEntity;;
 
 public class LoginFragment extends Fragment {
-    EditText login_id, login_password;
+    EditText login_id_editText, login_password_editText;
     Button signup_button, login_button;
     RadioButton user_radio_btn, doctor_radio_btn;
-
-    FirebaseDatabase firebaseDatabase;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.login_layout, container, false);
-        login_id = (EditText)rootView.findViewById(R.id.login_id);
-        login_password = (EditText)rootView.findViewById(R.id.login_password);
+        login_id_editText = (EditText)rootView.findViewById(R.id.login_id);
+        login_password_editText = (EditText)rootView.findViewById(R.id.login_password);
         signup_button = (Button)rootView.findViewById(R.id.signup_button);
         login_button = (Button)rootView.findViewById(R.id.login_button);
         user_radio_btn = (RadioButton)rootView.findViewById(R.id.user_radio_btn);
         doctor_radio_btn = (RadioButton)rootView.findViewById(R.id.doctor_radio_btn);
-
-        firebaseDatabase = FirebaseDatabase.getInstance();
 
         signup_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,22 +59,24 @@ public class LoginFragment extends Fragment {
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String login = login_id.getText().toString();
-                String password = login_password.getText().toString();
-                if(Pattern.compile("[\\d]+@[a-z]+").matcher(login).matches()){
-                    final String str[] = login.split("@");
-
-                    DatabaseReference databaseReference = firebaseDatabase.getReference(str[1]).child(str[0]);
+                final String login_id = login_id_editText.getText().toString();
+                final String login_password = login_password_editText.getText().toString();
+                if(Pattern.compile("[\\d]+@[a-z]+").matcher(login_id).matches()){
+                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("healthcare/login").child(login_id);
 
                     databaseReference.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            if(str[1].equals("doctor")){
-                                DoctorEntity doctorEntity = dataSnapshot.getValue(DoctorEntity.class);
+                            LoginEntity loginEntity = dataSnapshot.getValue(LoginEntity.class);
+                            if(loginEntity.getLogin_id().equals(login_id) && loginEntity.getLogin_password().equals(login_password)){
+                                if(login_id.contains("doctor")){
+                                    getFragmentManager().beginTransaction().replace(R.id.fragment_layout, new DoctorMainPage()).commit();
+                                }else{
+                                    getFragmentManager().beginTransaction().replace(R.id.fragment_layout, new UserMainPage()).commit();
+                                }
                             }else{
-                                UserEntity userEntity = dataSnapshot.getValue(UserEntity.class);
+                                Toast.makeText(getContext(), getString(R.string.invalid_login_credentials), Toast.LENGTH_SHORT).show();
                             }
-
                         }
 
                         @Override
@@ -82,7 +86,7 @@ public class LoginFragment extends Fragment {
                     });
 
                 }else{
-                    Toast.makeText(getContext(), getString(R.string.invalid_login), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), getString(R.string.invalid_login_credentials), Toast.LENGTH_SHORT).show();
                 }
             }
         });

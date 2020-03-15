@@ -19,6 +19,10 @@ public class UserValidator {
         return error_list;
     }
 
+    public void add_To_Error_List(String field){
+        error_list.add(field);
+    }
+
     public boolean validate_and_SetName(String value){
         if(value == null || value.equals("")){
             error_list.add("name");
@@ -63,23 +67,6 @@ public class UserValidator {
         return true;
     }
 
-    public boolean validate_and_setPassword(String value1, String value2){
-        if(value1 == null || value1.equals("")){
-            error_list.add("password");
-            return false;
-        }
-        if(value2 == null || value2.equals("")){
-            error_list.add("password");
-            return false;
-        }
-        if(!value1.equals(value2)){
-            error_list.add("password");
-            return false;
-        }
-        userEntity.setPassword(value1);
-        return true;
-    }
-
     public boolean validate_and_SetAddress(String value){
         if(value == null || value.equals("")){
             error_list.add("address");
@@ -101,6 +88,24 @@ public class UserValidator {
             error_list.add("gender");
             return false;
         }
+        return true;
+    }
+
+    public boolean validate_and_SetCountry(String value){
+        if(value == null || value.equals("")){
+            error_list.add("country");
+            return false;
+        }
+        userEntity.setCountry(value);
+        return true;
+    }
+
+    public boolean validate_and_SetCity(String value){
+        if(value == null || value.equals("")){
+            error_list.add("city");
+            return false;
+        }
+        userEntity.setCity(value);
         return true;
     }
 }

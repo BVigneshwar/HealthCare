@@ -7,6 +7,8 @@
     <string name="cancel">Cancel</string>
     <string name="doctor">Doctor</string>
     <string name="user">User</string>
+    <string name="specialities">Specialities</string>
+    <string name="history">History</string>
 
     <string name="name">Name</string>
     <string name="qualification">Qualification</string>
@@ -19,9 +21,46 @@
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="age">Age</string>
+    <string name="city">City</string>
+    <string name="country">Country</string>
 
-    <string name="invalid_login">Invalid login id</string>
+    <string name="invalid_login_credentials">Invalid login credentials</string>
     <string name="invalid_value_alert">Enter a valid %1$s</string>
     <string name="incorrect_login">Incorrect Login id / Password</string>
     <string name="registration_success">Registered Successfully</string>
+    <string name="registration_details">You can login using the below login id : %1$s</string>
+    <string name="ok">Ok</string>
+
+    <string name="common_symptoms">Common Symptoms</string>
+    <string name="fever">Fever</string>
+    <string name="headache">Headache</string>
+    <string name="period_issue">Period issue</string>
+    <string name="acne_pimples">Acne/Pimples</string>
+    <string name="stress">Stress</string>
+    <string name="depression">Depression</string>
+    <string name="weight_loss">Weight loss</string>
+    <string name="back_pain">Back pain</string>
+
+    <string-array name="speciality">
+        <item>Allergist</item>
+        <item>Anesthesiologist</item>
+        <item>Cardiologist</item>
+        <item>Dentist</item>
+        <item>Dermatologist</item>
+        <item>Endocrinologist</item>
+        <item>Gastroenterologist</item>
+        <item>Gynecologist</item>
+        <item>Hematologist</item>
+        <item>Nephrologist</item>
+        <item>Neurologist</item>
+        <item>Oncologist</item>
+        <item>Ophthalmologist</item>
+        <item>Pediatrician</item>
+        <item>Physician</item>
+        <item>Plastic Surgeon</item>
+        <item>Psychiatrist</item>
+        <item>Pulmonogist</item>
+        <item>Radiologist</item>
+        <item>Urologist</item>
+    </string-array>
 </resources>

@@ -142,6 +142,36 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"/>
 
+        <TextView
+            android:layout_row="8"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/city"/>
+        <EditText
+            android:id="@+id/city_editText"
+            android:layout_row="8"
+            android:layout_column="1"
+            android:layout_columnWeight="2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_row="9"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/country"/>
+        <EditText
+            android:id="@+id/country_editText"
+            android:layout_row="9"
+            android:layout_column="1"
+            android:layout_columnWeight="2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+
     </GridLayout>
     <LinearLayout
         android:layout_width="match_parent"

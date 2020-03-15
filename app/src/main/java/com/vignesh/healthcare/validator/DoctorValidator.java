@@ -19,6 +19,10 @@ public class DoctorValidator {
         return error_list;
     }
 
+    public void add_To_Error_List(String field){
+        error_list.add(field);
+    }
+
     public boolean validate_and_SetName(String value){
         if(value == null || value.equals("")){
             error_list.add("name");
@@ -68,29 +72,30 @@ public class DoctorValidator {
         return true;
     }
 
-    public boolean validate_and_setPassword(String value1, String value2){
-        if(value1 == null || value1.equals("")){
-            error_list.add("password");
-            return false;
-        }
-        if(value2 == null || value2.equals("")){
-            error_list.add("password");
-            return false;
-        }
-        if(!value1.equals(value2)){
-            error_list.add("password");
-            return false;
-        }
-        doctorEntity.setPassword(value1);
-        return true;
-    }
-
     public boolean validate_and_SetAddress(String value){
         if(value == null || value.equals("")){
             error_list.add("address");
             return false;
         }
         doctorEntity.setAddress(value);
+        return true;
+    }
+
+    public boolean validate_and_SetCountry(String value){
+        if(value == null || value.equals("")){
+            error_list.add("country");
+            return false;
+        }
+        doctorEntity.setCountry(value);
+        return true;
+    }
+
+    public boolean validate_and_SetCity(String value){
+        if(value == null || value.equals("")){
+            error_list.add("city");
+            return false;
+        }
+        doctorEntity.setCity(value);
         return true;
     }
 }

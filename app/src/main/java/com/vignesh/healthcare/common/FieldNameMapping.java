@@ -16,5 +16,7 @@ public class FieldNameMapping {
         fieldNameMapping.put("address", R.string.address);
         fieldNameMapping.put("qualification", R.string.qualification);
         fieldNameMapping.put("specialist", R.string.specialist);
+        fieldNameMapping.put("city", R.string.city);
+        fieldNameMapping.put("country", R.string.country);
     }
 }

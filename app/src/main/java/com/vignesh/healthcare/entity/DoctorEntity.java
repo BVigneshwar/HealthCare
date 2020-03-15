@@ -1,11 +1,5 @@
 package com.vignesh.healthcare.entity;
 
-import android.content.Context;
-import android.widget.Toast;
-
-import androidx.core.content.ContextCompat;
-
-import com.vignesh.healthcare.R;
 
 public class DoctorEntity {
     private String name;
@@ -14,7 +8,8 @@ public class DoctorEntity {
     private String address;
     private String qualification;
     private String specialist;
-    private String password;
+    private String city;
+    private String country;
 
     public String getName() {
         return name;
@@ -36,12 +31,16 @@ public class DoctorEntity {
         return qualification;
     }
 
-    public String getSpecialist() {
-        return specialist;
+    public String getCity() {
+        return city;
     }
 
-    public String getPassword() {
-        return password;
+    public String getCountry() {
+        return country;
+    }
+
+    public String getSpecialist() {
+        return specialist;
     }
 
     public void setName(String name) {
@@ -68,17 +67,11 @@ public class DoctorEntity {
         this.specialist = specialist;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    //Need To change
-    private String getDisplayNameForField(Context context, String field_name){
-        return "name";
+    public void setCountry(String country) {
+        this.country = country;
     }
-
-    public boolean validateAndSetName(String name){
-        return true;
-    }
-
 }
