@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:background="@drawable/bottom_border">
+
+    <TextView
+        android:id="@+id/name_textView"
+        android:layout_toLeftOf="@id/remove_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/BlackText"/>
+
+    <ImageButton
+        android:id="@+id/remove_button"
+        android:src="@drawable/close_icon"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_gray_button"/>
+
+    <TextView
+        android:id="@+id/description_textView"
+        android:layout_toLeftOf="@id/remove_button"
+        android:layout_below="@id/name_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/GrayText"/>
+
+    <TextView
+        android:id="@+id/meal_textView"
+        android:layout_below="@id/description_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/GrayText"/>
+
+    <LinearLayout
+        android:layout_below="@id/meal_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/morning_textView"
+            android:text="@string/morning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/GrayText"/>
+        <TextView
+            android:id="@+id/afternoon_textView"
+            android:text="@string/afternoon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/GrayText"/>
+        <TextView
+            android:id="@+id/night_textView"
+            android:text="@string/night"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/GrayText"/>
+    </LinearLayout>
+
+</RelativeLayout>

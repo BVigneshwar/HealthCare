@@ -1,18 +1,21 @@
 <resources>
     <string name="app_name">HealthCare</string>
-    <string name="login_id">Email/Phone No</string>
+    <string name="login_id">Login Id</string>
     <string name="login_password">Password</string>
     <string name="sign_up">Sign up</string>
     <string name="login">Login</string>
     <string name="cancel">Cancel</string>
     <string name="doctor">Doctor</string>
+    <string name="patient">Patient</string>
     <string name="user">User</string>
     <string name="specialities">Specialities</string>
-    <string name="history">History</string>
+    <string name="record">Record</string>
+    <string name="details">Details</string>
+    <string name="proceed">Proceed</string>
 
     <string name="name">Name</string>
     <string name="qualification">Qualification</string>
-    <string name="specialist">Specialist</string>
+    <string name="speciality">Speciality</string>
     <string name="address">Address</string>
     <string name="email">Email</string>
     <string name="contact">Contact</string>
@@ -23,13 +26,36 @@
     <string name="age">Age</string>
     <string name="city">City</string>
     <string name="country">Country</string>
+    <string name="year">Year</string>
+    <string name="month">Month</string>
+    <string name="analysis">Analysis</string>
+    <string name="medicine">Medicine</string>
+    <string name="refer">Refer</string>
+    <string name="select_doctor">Select Doctor</string>
+    <string name="check_in">Check in</string>
+    <string name="check_out">Check out</string>
+    <string name="available">Available</string>
+    <string name="dob">Date of Birth</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="description">Description</string>
+    <string name="duration">Duration</string>
+    <string name="reason">Reason</string>
+    <string name="refer_doctor">Refer Doctor</string>
+
+    <string name="name_label">Name : </string>
+    <string name="gender_label">Gender : </string>
+    <string name="age_label">Age : </string>
+    <string name="filter_by_label">Filter by : </string>
 
     <string name="invalid_login_credentials">Invalid login credentials</string>
-    <string name="invalid_value_alert">Enter a valid %1$s</string>
+    <string name="invalid_value_alert">Enter a valid input for %1$s</string>
     <string name="incorrect_login">Incorrect Login id / Password</string>
     <string name="registration_success">Registered Successfully</string>
     <string name="registration_details">You can login using the below login id : %1$s</string>
     <string name="ok">Ok</string>
+    <string name="consult">Consult</string>
+    <string name="prescribe">Prescribe</string>
 
     <string name="common_symptoms">Common Symptoms</string>
     <string name="fever">Fever</string>
@@ -37,30 +63,87 @@
     <string name="period_issue">Period issue</string>
     <string name="acne_pimples">Acne/Pimples</string>
     <string name="stress">Stress</string>
-    <string name="depression">Depression</string>
+    <string name="nausea">Nausea</string>
     <string name="weight_loss">Weight loss</string>
     <string name="back_pain">Back pain</string>
 
     <string-array name="speciality">
-        <item>Allergist</item>
-        <item>Anesthesiologist</item>
         <item>Cardiologist</item>
         <item>Dentist</item>
         <item>Dermatologist</item>
-        <item>Endocrinologist</item>
-        <item>Gastroenterologist</item>
+        <item>Diabetologist</item>
         <item>Gynecologist</item>
-        <item>Hematologist</item>
         <item>Nephrologist</item>
         <item>Neurologist</item>
         <item>Oncologist</item>
         <item>Ophthalmologist</item>
+        <item>Orthologist</item>
         <item>Pediatrician</item>
         <item>Physician</item>
         <item>Plastic Surgeon</item>
         <item>Psychiatrist</item>
-        <item>Pulmonogist</item>
-        <item>Radiologist</item>
-        <item>Urologist</item>
     </string-array>
+
+    <string-array name="duration">
+        <item>Day</item>
+        <item>Month</item>
+        <item>Year</item>
+    </string-array>
+
+    <string name="none">None</string>
+    <string name="dentist">Dentist</string>
+    <string name="cardiologist">Cardiologist</string>
+    <string name="physician">Physician</string>
+    <string name="psychiatrist">Psychiatrist</string>
+    <string name="gynecologist">Gynecologist</string>
+    <string name="diabetologist">Diabetologist</string>
+    <string name="dermatologist">Dermatologist</string>
+    <string name="orthologist">Orthologist</string>
+
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+
+    <string name="mon">Mon</string>
+    <string name="tue">Tue</string>
+    <string name="wed">Wed</string>
+    <string name="thu">Thu</string>
+    <string name="fri">Fri</string>
+    <string name="sat">Sat</string>
+    <string name="sun">Sun</string>
+
+    <string name="jan">Jan</string>
+    <string name="feb">Feb</string>
+    <string name="mar">Mar</string>
+    <string name="apr">Apr</string>
+    <string name="may">May</string>
+    <string name="jun">Jun</string>
+    <string name="jul">Jul</string>
+    <string name="aug">Aug</string>
+    <string name="sep">Sep</string>
+    <string name="oct">Oct</string>
+    <string name="nov">Nov</string>
+    <string name="dec">Dec</string>
+
+    <string name="confirmation">Confirmation</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="consultation_booking_confirmed">Consultation booked successfully</string>
+    <string name="account_already_exists">Account already exsists</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="today">Today</string>
+    <string name="tomorrow">Tomorrow</string>
+    <string name="morning">Morning</string>
+    <string name="afternoon">Afternoon</string>
+    <string name="night">Night</string>
+    <string name="before_meal">Before meal</string>
+    <string name="after_meal">After meal</string>
+    <string name="not_available">Not available</string>
+    <string name="general_checkup">General Checkup</string>
+    <string name="already_made_appointment">You have already made an appointment with %1$s on that time</string>
+
 </resources>

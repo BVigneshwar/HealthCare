@@ -20,14 +20,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.vignesh.healthcare.doctor.DoctorMainPage;
+import com.vignesh.healthcare.MainActivity;
+import com.vignesh.healthcare.doctor.DoctorHomePage;
 import com.vignesh.healthcare.doctor.DoctorSignupFragment;
 import com.vignesh.healthcare.R;
 import com.vignesh.healthcare.entity.LoginEntity;
-import com.vignesh.healthcare.user.UserMainPage;
+import com.vignesh.healthcare.user.UserHomePage;
 import com.vignesh.healthcare.user.UserSignupFragment;
-import com.vignesh.healthcare.entity.DoctorEntity;
-import com.vignesh.healthcare.entity.UserEntity;;
+;
 
 public class LoginFragment extends Fragment {
     EditText login_id_editText, login_password_editText;
@@ -62,17 +62,22 @@ public class LoginFragment extends Fragment {
                 final String login_id = login_id_editText.getText().toString();
                 final String login_password = login_password_editText.getText().toString();
                 if(Pattern.compile("[\\d]+@[a-z]+").matcher(login_id).matches()){
-                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("healthcare/login").child(login_id);
+                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("healthcare/login/"+login_id);
 
                     databaseReference.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             LoginEntity loginEntity = dataSnapshot.getValue(LoginEntity.class);
-                            if(loginEntity.getLogin_id().equals(login_id) && loginEntity.getLogin_password().equals(login_password)){
-                                if(login_id.contains("doctor")){
-                                    getFragmentManager().beginTransaction().replace(R.id.fragment_layout, new DoctorMainPage()).commit();
+                            if(loginEntity.getLogin_password().equals(login_password)){
+                                if(login_id.contains("user")){
+                                    UserHomePage userHomePage = new UserHomePage();
+                                    ((MainActivity)getActivity()).setUser_contact(Long.parseLong(loginEntity.getLogin_id().split("@")[0]));
+                                    getFragmentManager().beginTransaction().replace(R.id.fragment_layout, userHomePage).commit();
                                 }else{
-                                    getFragmentManager().beginTransaction().replace(R.id.fragment_layout, new UserMainPage()).commit();
+                                    DoctorHomePage doctorHomePage = new DoctorHomePage();
+                                    ((MainActivity)getActivity()).setDoctor_contact(Long.parseLong(loginEntity.getLogin_id().split("@")[0]));
+                                    ((MainActivity)getActivity()).setSpeciality(loginEntity.getLogin_id().split("@")[1]);
+                                    getFragmentManager().beginTransaction().replace(R.id.fragment_layout, doctorHomePage).commit();
                                 }
                             }else{
                                 Toast.makeText(getContext(), getString(R.string.invalid_login_credentials), Toast.LENGTH_SHORT).show();

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/doctor_card_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:background="@drawable/bottom_border">
+
+    <TextView
+        android:id="@+id/doctor_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/BlackText"/>
+
+    <TextView
+        android:id="@+id/doctor_qualification"
+        android:layout_below="@id/doctor_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/GrayText"/>
+
+    <TextView
+        android:id="@+id/doctor_contact"
+        android:layout_below="@id/doctor_qualification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/GrayText"/>
+
+</RelativeLayout>

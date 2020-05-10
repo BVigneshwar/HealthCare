@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/record_card_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:background="@drawable/bottom_border">
+
+    <TextView
+        android:id="@+id/reason_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/BlueText"/>
+
+    <TextView
+        android:id="@+id/doctor_name_textView"
+        android:layout_below="@id/reason_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/BlackText"/>
+
+    <TextView
+        android:id="@+id/speciality_textView"
+        android:layout_below="@id/doctor_name_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/GrayText"/>
+
+    <TextView
+        android:id="@+id/consult_date_textView"
+        android:layout_below="@id/speciality_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/GrayText"/>
+
+</RelativeLayout>

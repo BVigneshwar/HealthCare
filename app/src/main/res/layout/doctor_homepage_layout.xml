@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/prev_date_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/prev_arrow"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:id="@+id/date_textView"
+        android:text="@string/today"
+        android:layout_toRightOf="@id/prev_date_textView"
+        android:layout_toLeftOf="@id/next_date_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_margin="10dp"
+        style="@style/BlackText"/>
+
+    <TextView
+        android:id="@+id/next_date_textView"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/next_arrow"
+        android:layout_margin="10dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/consultation_recyclerView"
+        android:layout_below="@id/date_textView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</RelativeLayout>

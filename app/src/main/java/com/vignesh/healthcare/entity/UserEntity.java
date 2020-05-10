@@ -1,15 +1,18 @@
 package com.vignesh.healthcare.entity;
 
 
+import java.util.HashMap;
+
 public class UserEntity {
     private String name;
-    private String email;
     private long contact;
-    private int age;
+    private String email;
+    private String dob;
     private String gender;
     private String address;
     private String city;
     private String country;
+    private HashMap<String, UserConsultEntity> consult;
 
     public String getName() {
         return name;
@@ -23,8 +26,8 @@ public class UserEntity {
         return contact;
     }
 
-    public int getAge() {
-        return age;
+    public String getDob() {
+        return dob;
     }
 
     public String getGender() {
@@ -39,6 +42,10 @@ public class UserEntity {
 
     public String getCountry(){ return country; }
 
+    public HashMap<String, UserConsultEntity> getConsult() {
+        return consult;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -51,8 +58,8 @@ public class UserEntity {
         this.contact = contact;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setDob(String dob) {
+        this.dob = dob;
     }
 
     public void setGender(String gender) {
@@ -71,4 +78,7 @@ public class UserEntity {
         this.country = country;
     }
 
+    public void setConsult(HashMap<String, UserConsultEntity> consult) {
+        this.consult = consult;
+    }
 }

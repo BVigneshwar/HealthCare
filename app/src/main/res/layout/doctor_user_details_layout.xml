@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/name_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        style="@style/BlackText"/>
+
+    <TextView
+        android:id="@+id/gender_label"
+        android:layout_below="@id/name_textView"
+        android:text="@string/gender_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="5dp"
+        style="@style/GrayText"/>
+
+    <TextView
+        android:id="@+id/gender_textView"
+        android:layout_below="@id/name_textView"
+        android:layout_toRightOf="@id/gender_label"
+        android:layout_toLeftOf="@id/prescribe_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/BlackText"/>
+
+    <TextView
+        android:id="@+id/age_label"
+        android:layout_below="@id/gender_label"
+        android:text="@string/age_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="5dp"
+        style="@style/GrayText"/>
+
+    <TextView
+        android:id="@+id/age_textView"
+        android:layout_below="@id/gender_label"
+        android:layout_toRightOf="@id/age_label"
+        android:layout_toLeftOf="@id/prescribe_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        style="@style/BlackText"/>
+
+    <Button
+        android:id="@+id/prescribe_button"
+        android:layout_below="@id/name_textView"
+        android:text="@string/prescribe"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/cancel_button"
+        style="@style/CancelButton"/>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/user_viewPager"
+        android:layout_below="@id/prescribe_button"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/user_tab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabGravity="fill">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/details" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/record" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+    </androidx.viewpager.widget.ViewPager>
+
+</RelativeLayout>

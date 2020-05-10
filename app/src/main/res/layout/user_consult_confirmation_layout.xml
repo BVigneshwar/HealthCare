@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2">
+
+        <TextView
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/name"
+            style="@style/GrayText"/>
+        <TextView
+            android:id="@+id/doctor_textView"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_columnWeight="2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            style="@style/BlackText"/>
+
+        <TextView
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/speciality"
+            style="@style/GrayText"/>
+        <TextView
+            android:id="@+id/speciality_textView"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_columnWeight="2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            style="@style/BlackText"/>
+
+        <TextView
+            android:layout_row="2"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/reason"
+            android:layout_gravity="fill_vertical"
+            android:gravity="center_vertical"
+            style="@style/GrayText"/>
+        <EditText
+            android:id="@+id/reason_textView"
+            android:layout_row="2"
+            android:layout_column="1"
+            android:layout_columnWeight="2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BlackText"/>
+
+        <TextView
+            android:layout_row="3"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/date"
+            style="@style/GrayText"/>
+        <TextView
+            android:id="@+id/date_textView"
+            android:layout_row="3"
+            android:layout_column="1"
+            android:layout_columnWeight="2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            style="@style/BlackText"/>
+
+        <TextView
+            android:layout_row="4"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/time"
+            style="@style/GrayText"/>
+        <TextView
+            android:id="@+id/time_textView"
+            android:layout_row="4"
+            android:layout_column="1"
+            android:layout_columnWeight="2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            style="@style/BlackText"/>
+
+    </GridLayout>
+
+</LinearLayout>

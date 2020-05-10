@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/consult_card_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:background="@drawable/bottom_border">
+
+    <TextView
+        android:id="@+id/consult_time_textView"
+        android:text="09:00"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        style="@style/BlueText"/>
+
+    <TextView
+        android:id="@+id/reason_textView"
+        android:text="@string/general_checkup"
+        android:layout_toRightOf="@id/consult_time_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/BlackText"/>
+
+    <TextView
+        android:id="@+id/name_label"
+        android:layout_below="@id/consult_time_textView"
+        android:text="@string/name_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        style="@style/GrayText"/>
+
+    <TextView
+        android:id="@+id/name_textView"
+        android:layout_toRightOf="@id/name_label"
+        android:layout_below="@id/consult_time_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/BlackText"/>
+
+    <LinearLayout
+        android:id="@+id/details_linearLayout"
+        android:layout_below="@id/name_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:text= "@string/gender_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            style="@style/GrayText"/>
+
+        <TextView
+            android:id="@+id/gender_textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/BlackText"/>
+
+        <TextView
+            android:text="@string/age_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            style="@style/GrayText"/>
+
+        <TextView
+            android:id="@+id/age_textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/BlackText"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/date_recyclerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/name_textView"
+        android:layout_below="@id/date_recyclerView"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        style="@style/BlackText"/>
+
+    <TextView
+        android:id="@+id/speciality_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name_textView"
+        android:layout_marginLeft="10dp"
+        style="@style/GrayText"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/time_recyclerView"
+        android:layout_below="@id/speciality_textView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</RelativeLayout>
