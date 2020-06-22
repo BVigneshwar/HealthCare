@@ -62,13 +62,11 @@ public class LoginFragment extends Fragment {
                 final String login_id = login_id_editText.getText().toString();
                 final String login_password = login_password_editText.getText().toString();
                 if(Pattern.compile("[\\d]+@[a-z]+").matcher(login_id).matches()){
-                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("healthcare/login/"+login_id);
-
-                    databaseReference.addValueEventListener(new ValueEventListener() {
+                    FirebaseHandler.getLoginDetails(login_id, new FirebaseHandler.FirebaseInterface() {
                         @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        public void onGetCallback(DataSnapshot dataSnapshot) {
                             LoginEntity loginEntity = dataSnapshot.getValue(LoginEntity.class);
-                            if(loginEntity.getLogin_password().equals(login_password)){
+                            if(loginEntity != null && loginEntity.getLogin_password() != null && loginEntity.getLogin_password().equals(login_password)){
                                 if(login_id.contains("user")){
                                     UserHomePage userHomePage = new UserHomePage();
                                     ((MainActivity)getActivity()).setUser_contact(Long.parseLong(loginEntity.getLogin_id().split("@")[0]));
@@ -83,13 +81,7 @@ public class LoginFragment extends Fragment {
                                 Toast.makeText(getContext(), getString(R.string.invalid_login_credentials), Toast.LENGTH_SHORT).show();
                             }
                         }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                        }
                     });
-
                 }else{
                     Toast.makeText(getContext(), getString(R.string.invalid_login_credentials), Toast.LENGTH_SHORT).show();
                 }

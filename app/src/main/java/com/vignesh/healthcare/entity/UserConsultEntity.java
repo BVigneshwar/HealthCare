@@ -94,6 +94,6 @@ public class UserConsultEntity implements Comparable<UserConsultEntity> {
 
     @Override
     public int compareTo(UserConsultEntity o) {
-        return (int)(this.milli_second - o.getMilli_second());
+        return (int)(o.getMilli_second() - this.milli_second);
     }
 }

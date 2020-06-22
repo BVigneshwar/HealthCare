@@ -58,15 +58,6 @@ public class DoctorHomePage extends Fragment{
         consult_date = CommonUtil.getDateStringForMilliSeconds(CommonUtil.date_format, -1);
         consult_millisecond = CommonUtil.getMilliSecondsForDate(CommonUtil.date_format, consult_date);
 
-        FirebaseHandler.getDoctorDetails(doctor_speciality, doctor_contact, new FirebaseHandler.FirebaseInterface() {
-            @Override
-            public void onGetCallback(DataSnapshot dataSnapshot) {
-                DoctorEntity doctorEntity = dataSnapshot.getValue(DoctorEntity.class);
-                ((MainActivity)getActivity()).setDoctorEntity(doctorEntity);
-                setConsultationDate();
-            }
-        });
-
         date_textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,7 +79,26 @@ public class DoctorHomePage extends Fragment{
             }
         });
 
+        consultationRecyclerViewAdapter = new ConsultationRecyclerViewAdapter(new LinkedList<DoctorConsultEntity>(), getContext());
+        consultationRecyclerViewAdapter.setFragment(this);
+        consultation_recyclerView.setHasFixedSize(true);
+        consultation_recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        consultation_recyclerView.setAdapter(consultationRecyclerViewAdapter);
+
         return rootView;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        FirebaseHandler.getDoctorDetails(doctor_speciality, doctor_contact, new FirebaseHandler.FirebaseInterface() {
+            @Override
+            public void onGetCallback(DataSnapshot dataSnapshot) {
+                DoctorEntity doctorEntity = dataSnapshot.getValue(DoctorEntity.class);
+                ((MainActivity)getActivity()).setDoctorEntity(doctorEntity);
+                setConsultationDate();
+            }
+        });
     }
 
     void modifyConsultData(){
@@ -105,22 +115,17 @@ public class DoctorHomePage extends Fragment{
         check_in = CommonUtil.getMilliSecondsForDate(CommonUtil.date_time_format, consult_date+" "+CommonUtil.getDateStringForMilliSeconds(CommonUtil.time_format, check_in));
         check_out = CommonUtil.getMilliSecondsForDate(CommonUtil.date_time_format, consult_date+" "+CommonUtil.getDateStringForMilliSeconds(CommonUtil.time_format, check_out));
 
-        for(HashMap.Entry<String, DoctorConsultEntity> entry : doctorEntity.getConsult().entrySet()){
-            long consult_time = Long.parseLong(entry.getKey());
-            if(consult_time >= check_in && consult_time <= check_out){
-                consult_entity_list.add(entry.getValue());
+        if(doctorEntity.getConsult() != null){
+            for(HashMap.Entry<String, DoctorConsultEntity> entry : doctorEntity.getConsult().entrySet()){
+                long consult_time = Long.parseLong(entry.getKey());
+                if(consult_time >= check_in && consult_time <= check_out){
+                    consult_entity_list.add(entry.getValue());
+                }
             }
         }
-        if(consultationRecyclerViewAdapter == null){
-            consultationRecyclerViewAdapter = new ConsultationRecyclerViewAdapter(consult_entity_list, getContext());
-            consultationRecyclerViewAdapter.setFragment(getFragment());
-            consultation_recyclerView.setHasFixedSize(true);
-            consultation_recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-            consultation_recyclerView.setAdapter(consultationRecyclerViewAdapter);
-        }else{
-            consultationRecyclerViewAdapter.consult_entity_list = consult_entity_list;
-            consultationRecyclerViewAdapter.notifyDataSetChanged();
-        }
+
+        consultationRecyclerViewAdapter.consult_entity_list = consult_entity_list;
+        consultationRecyclerViewAdapter.notifyDataSetChanged();
     }
 
     void displayDatePicker(){
@@ -164,7 +169,7 @@ public class DoctorHomePage extends Fragment{
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(CommonUtil.date_format);
         long diff = 0;
         try {
-            Date today = calendar.getTime();
+            Date today = simpleDateFormat.parse(simpleDateFormat.format(calendar.getTime()));
             Date new_consult_date = simpleDateFormat.parse(consult_date);
             long diffInMilliSec = today.getTime() - new_consult_date.getTime();
             diff = TimeUnit.DAYS.convert(diffInMilliSec, TimeUnit.MILLISECONDS);
@@ -174,16 +179,12 @@ public class DoctorHomePage extends Fragment{
         String display_date = consult_date;
         if(diff == 0){
             display_date = getString(R.string.today);
-        }else if(diff == -1){
-            display_date = getString(R.string.yesterday);
         }else if(diff == 1){
+            display_date = getString(R.string.yesterday);
+        }else if(diff == -1){
             display_date = getString(R.string.tomorrow);
         }
         date_textView.setText(display_date);
         modifyConsultData();
-    }
-
-    Fragment getFragment(){
-        return this;
     }
 }

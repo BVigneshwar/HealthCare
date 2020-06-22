@@ -1,15 +1,21 @@
 package com.vignesh.healthcare.doctor;
 
 import android.content.Context;
+import android.os.Bundle;
+import android.os.Parcelable;
+import android.util.Log;
+import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.vignesh.healthcare.R;
 
-public class UserDetailsTabAdapter extends FragmentPagerAdapter {
+public class UserDetailsTabAdapter extends FragmentStatePagerAdapter {
     Context context;
     int totalTabs;
 
@@ -44,5 +50,10 @@ public class UserDetailsTabAdapter extends FragmentPagerAdapter {
             return context.getString(R.string.record);
         }
         return super.getPageTitle(position);
+    }
+
+    @Override
+    public void restoreState(Parcelable state, ClassLoader loader) {
+
     }
 }

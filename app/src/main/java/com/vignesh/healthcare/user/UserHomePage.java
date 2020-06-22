@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridLayout;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,17 +28,18 @@ import java.util.List;
 
 
 public class UserHomePage extends Fragment implements View.OnClickListener{
-    GridLayout speciality_gridLayout;
+    GridLayout speciality_gridLayout, symptoms_gridLayout;
     RecyclerView record_recyclerView;
     RecordRecyclerViewAdapter recordRecyclerViewAdapter;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.user_homepage_layout, container, false);
+        symptoms_gridLayout = rootView.findViewById(R.id.symptoms_gridLayout);
         speciality_gridLayout = rootView.findViewById(R.id.specialities_gridLayout);
         record_recyclerView = rootView.findViewById(R.id.record_recyclerView);
 
-        recordRecyclerViewAdapter = new RecordRecyclerViewAdapter(new LinkedList<UserConsultEntity>());
+        recordRecyclerViewAdapter = new RecordRecyclerViewAdapter(new LinkedList<UserConsultEntity>(), this);
         record_recyclerView.setHasFixedSize(true);
         record_recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         record_recyclerView.setAdapter(recordRecyclerViewAdapter);
@@ -71,6 +73,21 @@ public class UserHomePage extends Fragment implements View.OnClickListener{
         for(int i=0; i<speciality_count; i++){
             LinearLayout speciality_container = (LinearLayout) speciality_gridLayout.getChildAt(i);
             speciality_container.setOnClickListener(this);
+        }
+        int symptoms_count = symptoms_gridLayout.getChildCount();
+        for(int i=0; i<symptoms_count; i++){
+            LinearLayout symptoms_container = (LinearLayout) symptoms_gridLayout.getChildAt(i);
+            symptoms_container.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String reason = ((TextView)((LinearLayout)v).getChildAt(1)).getText().toString();
+                    ((MainActivity)getActivity()).setReason(reason);
+                    String speciality = v.getTag().toString();
+                    ((MainActivity)getActivity()).setSpeciality(speciality);
+                    SpecialityRecyclerViewFragment specialityRecyclerViewFragment = new SpecialityRecyclerViewFragment();
+                    getFragmentManager().beginTransaction().replace(R.id.fragment_layout, specialityRecyclerViewFragment).addToBackStack(null).commit();
+                }
+            });
         }
     }
 

@@ -21,6 +21,7 @@
                 style="@style/BlackText"/>
 
             <GridLayout
+                android:id="@+id/symptoms_gridLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:columnCount="4"
@@ -28,6 +29,7 @@
                 android:layout_margin="10dp">
 
                 <LinearLayout
+                    android:tag="Physician"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -48,6 +50,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:tag="Physician"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -68,6 +71,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:tag="Gynecologist"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -88,6 +92,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:tag="Physician"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -108,6 +113,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:tag="Psychiatrist"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -128,6 +134,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:tag="Physician"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -148,6 +155,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:tag="Physician"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -168,6 +176,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:tag="Orthologist"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"

@@ -57,7 +57,7 @@ public class PrescriptionFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.prescription_layout, container, false);
+        View rootView = inflater.inflate(R.layout.prescription_form_layout, container, false);
 
         doctor_textView = rootView.findViewById(R.id.doctor_textView);
         speciality_textView = rootView.findViewById(R.id.speciality_textView);

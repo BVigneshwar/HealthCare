@@ -13,20 +13,6 @@ import java.util.Date;
 
 public class CommonUtil {
 
-    public static enum bundleKey{
-        doctor_name("doctor_name"), doctor_speciality("doctor_speciality"), doctor_contact("doctor_contact"),
-        consult_date("consult_date"), consult_time("consult_time"), consult_day("consult_day"), consult_millisecond("consult_millisecond"),
-        user_name("user_name"), user_contact("user_contact"), user_email("user_email"), user_dob("user_dob"), user_gender("user_gender"), user_age("user_age");
-
-        String name;
-        bundleKey(String name){
-            this.name = name;
-        }
-        public String getName(){
-            return this.name;
-        }
-    }
-
     public final static String time_format = "HH:mm";
     public final static String day_format = "EEE";
     public final static String date_format = "dd-MM-yyyy";

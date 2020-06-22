@@ -67,6 +67,8 @@ public class UserDetailsFragment extends Fragment {
             }
         });
 
+
+
         return rootView;
     }
 }

@@ -51,7 +51,7 @@ public class ConsultationRecyclerViewAdapter extends RecyclerView.Adapter<Consul
             public void onClick(View v) {
                 ((MainActivity)fragment.getActivity()).setDoctorConsultEntity(doctorConsultEntity);
                 UserDetailsFragment userDetailsFragment = new UserDetailsFragment();
-                fragment.getFragmentManager().beginTransaction().replace(R.id.fragment_layout, userDetailsFragment).addToBackStack(null).commit();
+                fragment.getFragmentManager().beginTransaction().replace(R.id.fragment_layout, userDetailsFragment).addToBackStack("UserConsultation").commit();
             }
         });
     }

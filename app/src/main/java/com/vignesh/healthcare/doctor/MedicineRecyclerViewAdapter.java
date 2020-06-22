@@ -18,10 +18,16 @@ import java.util.List;
 public class MedicineRecyclerViewAdapter extends RecyclerView.Adapter<MedicineRecyclerViewAdapter.ViewHolder> {
     List<MedicineEntity> medicine_list;
     Context context;
+    boolean hideRemoveButton;
 
-    MedicineRecyclerViewAdapter(List<MedicineEntity> medicine_list, Context context){
+    public MedicineRecyclerViewAdapter(List<MedicineEntity> medicine_list, Context context){
         this.medicine_list = medicine_list;
         this.context = context;
+        hideRemoveButton = false;
+    }
+
+    public void setHideRemoveButton(boolean hideRemoveButton) {
+        this.hideRemoveButton = hideRemoveButton;
     }
 
     @NonNull
@@ -46,13 +52,18 @@ public class MedicineRecyclerViewAdapter extends RecyclerView.Adapter<MedicineRe
         if(!medicineEntity.isNight()){
             holder.night_textView.setVisibility(View.INVISIBLE);
         }
-        holder.remove_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                medicine_list.remove(position);
-                notifyDataSetChanged();
-            }
-        });
+        if(!hideRemoveButton){
+            holder.remove_button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    medicine_list.remove(position);
+                    notifyDataSetChanged();
+                }
+            });
+        }else{
+            holder.remove_button.setVisibility(View.GONE);
+        }
+
     }
 
     @Override
