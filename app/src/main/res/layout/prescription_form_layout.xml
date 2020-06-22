@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/button_container">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/doctor_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Heading"/>
+
+            <TextView
+                android:id="@+id/speciality_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/BlackText"/>
+
+            <TextView
+                android:text="@string/details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                style="@style/GrayText"/>
+
+            <GridLayout
+                android:id="@+id/grid_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2">
+
+                <TextView
+                    android:text="@string/name"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    style="@style/BlackText"/>
+                <TextView
+                    android:id="@+id/patient_textView"
+                    android:layout_row="0"
+                    android:layout_column="1"
+                    android:layout_columnWeight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    style="@style/BlackText"/>
+
+                <TextView
+                    android:text="@string/age"
+                    android:layout_row="1"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    style="@style/BlackText"/>
+                <TextView
+                    android:id="@+id/age_textView"
+                    android:layout_row="1"
+                    android:layout_column="1"
+                    android:layout_columnWeight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    style="@style/BlackText"/>
+
+                <TextView
+                    android:text="@string/gender"
+                    android:layout_row="2"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    style="@style/BlackText"/>
+                <TextView
+                    android:id="@+id/gender_textView"
+                    android:layout_row="2"
+                    android:layout_column="1"
+                    android:layout_columnWeight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    style="@style/BlackText"/>
+
+                <TextView
+                    android:text="@string/date"
+                    android:layout_row="3"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    style="@style/BlackText"/>
+                <TextView
+                    android:id="@+id/consult_date_textView"
+                    android:layout_row="3"
+                    android:layout_column="1"
+                    android:layout_columnWeight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    style="@style/BlackText"/>
+            </GridLayout>
+
+            <TextView
+                android:text="@string/analysis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                style="@style/GrayText"/>
+            <EditText
+                android:id="@+id/analysis_editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="@string/medicine"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    style="@style/GrayText"/>
+                <Button
+                    android:id="@+id/add_medicine_button"
+                    android:text="Add"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/normal_button"
+                    style="@style/NormalButton"/>
+
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/medicine_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+                <TextView
+                    android:text="@string/refer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    style="@style/GrayText"/>
+                <CheckBox
+                    android:id="@+id/refer_checkBox"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/refer_speciality_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:text="@string/speciality"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    style="@style/BlackText"/>
+                <Spinner
+                    android:id="@+id/speciality_spinner"
+                    android:entries="@array/speciality"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:dropDownHeight="100dp"
+                    style="@style/Spinner"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/refer_doctor_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:text="@string/doctor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    style="@style/BlackText"/>
+                <Spinner
+                    android:id="@+id/doctor_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:dropDownHeight="100dp"
+                    style="@style/Spinner"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/button_container"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/cancel_button"
+            android:text="@string/cancel"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cancel_button"
+            style="@style/CancelButton"/>
+        <Button
+            android:id="@+id/proceed_button"
+            android:text="@string/proceed"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/normal_button"
+            style="@style/NormalButton"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
